@@ -22,13 +22,19 @@ class App extends Component {
     });
   }
 
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.filterEmployeesByName(this.state.search);
+
+  }
   // function attached to button to filter employees by name
-  // filterEmployeesByName = name => {
-  //   const selectedEmployee = this.state.employees.filter(employee => employee.name === name);
-  //   this.setState({
-  //     employees: selectedEmployee
-  //   });
-  // };
+  
+  filterEmployeesByName = name => {
+    const selectedEmployee = this.state.employees.filter(employee => employee.name === name);
+    this.setState({
+      employees: selectedEmployee
+    });
+  };
 
   // Map over this.state.employees and render an EmployeeCard component for each employee object
   render() {
@@ -36,8 +42,10 @@ class App extends Component {
       <div>
         <Title>Employee Directory</Title>
         <SearchByName
-          updateSearch={this.updateSearch}
-          search={this.state.search}
+          updateSearch= {this.updateSearch}
+          handleFormSubmit= {this.handleFormSubmit}
+          search= {this.state.search}
+
         />
         {this.state.employees.map(employee => (
           <EmployeeCard
