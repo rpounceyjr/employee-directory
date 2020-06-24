@@ -4,7 +4,7 @@ function SearchByName(props) {
     return (
         
         <form>
-            <label for="exampleInputPassword1">Search by Name</label>
+            <label>Search by Name</label>
             <input value={props.search} onChange={(event) => props.updateSearch(event.target.value)} />
             <button onClick={props.handleFormSubmit} className="btn btn-secondary mt-3">
           Search

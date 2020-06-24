@@ -26,10 +26,9 @@ class App extends Component {
   handleFormSubmit = event => {
     event.preventDefault();
     this.filterEmployeesByName(this.state.search);
-
   }
 
-  // function attached to button to filter employees by name
+  // function attached to search button to filter employees by name
   filterEmployeesByName = name => {
     const selectedEmployee = this.state.employees.filter(employee => employee.name.toLowerCase().includes(name.toLowerCase()));
     this.setState({
@@ -38,11 +37,10 @@ class App extends Component {
     });
   };
 
-  // function to sort employees by position
+  // function attached to button to sort employees by position
   sortByPosition = () => {
-  
     console.log("clicked");
-    let sortedEmployees = this.state.employees.sort((a,b) => (a.position > b.position) ? 1 : -1)
+    let sortedEmployees = [...this.state.employees].sort((a,b) => (a.position > b.position) ? 1 : -1)
 
     this.setState({
       employees: sortedEmployees
@@ -68,7 +66,7 @@ class App extends Component {
         <Wrapper>
           {this.state.employees.map(employee => (
             <EmployeeCard
-              id={employee.id}
+              key={employee.id}
               name={employee.name}
               image={employee.image}
               position={employee.position}
