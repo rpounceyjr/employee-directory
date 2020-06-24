@@ -47,6 +47,16 @@ class App extends Component {
     })
   }
 
+    // function attached to button to sort employees by position
+    sortByDepartment = () => {
+      console.log("clicked");
+      let sortedEmployees = [...this.state.employees].sort((a, b) => (a.department > b.department) ? 1 : -1)
+  
+      this.setState({
+        employees: sortedEmployees
+      })
+    }
+
 
   // Map over this.state.employees and render an EmployeeCard component for each employee object
   render() {
@@ -62,6 +72,7 @@ class App extends Component {
         />
         <SortEmployees className="sort"
           sortByPosition={this.sortByPosition}
+          sortByDepartment={this.sortByDepartment}
         />
         <Table>
           <TableHeader
