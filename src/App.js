@@ -5,6 +5,7 @@ import EmployeeCard from './components/EmployeeCard';
 import employees from "./employees.json";
 import Title from "./components/Title";
 import SearchByName from "./components/SearchByName";
+import SortEmployees from "./components/SortEmployees";
 import Wrapper from "./components/Wrapper"
 
 class App extends Component {
@@ -37,16 +38,32 @@ class App extends Component {
     });
   };
 
+  // function to sort employees by position
+  sortByPosition = () => {
+  
+    console.log("clicked");
+    let sortedEmployees = this.state.employees.sort((a,b) => (a.position > b.position) ? 1 : -1)
+
+    this.setState({
+      employees: sortedEmployees
+      })
+  }
+
+
   // Map over this.state.employees and render an EmployeeCard component for each employee object
   render() {
+    console.log(this.state.employees)
     return (
       <div>
         <Title>Employee Directory</Title>
         <SearchByName
+          className="search"
           updateSearch={this.updateSearch}
           handleFormSubmit={this.handleFormSubmit}
           search={this.state.search}
-
+        />
+        <SortEmployees className="sort"
+          sortByPosition={this.sortByPosition}
         />
         <Wrapper>
           {this.state.employees.map(employee => (
