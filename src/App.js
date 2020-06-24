@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import './App.css';
-// import EmployeeTable from './components/EmployeeTable';
-import EmployeeCard from './components/EmployeeCard';
 import employees from "./employees.json";
 import Title from "./components/Title";
 import SearchByName from "./components/SearchByName";
 import SortEmployees from "./components/SortEmployees";
-import Wrapper from "./components/Wrapper"
+import EmployeeRow from "./components/EmployeeRow"
+import Table from "./components/Table"
+import TableHeader from "./components/TableHeader"
 
 class App extends Component {
   // Setting this.state.employees to the employees json array
@@ -40,11 +40,11 @@ class App extends Component {
   // function attached to button to sort employees by position
   sortByPosition = () => {
     console.log("clicked");
-    let sortedEmployees = [...this.state.employees].sort((a,b) => (a.position > b.position) ? 1 : -1)
+    let sortedEmployees = [...this.state.employees].sort((a, b) => (a.position > b.position) ? 1 : -1)
 
     this.setState({
       employees: sortedEmployees
-      })
+    })
   }
 
 
@@ -63,17 +63,11 @@ class App extends Component {
         <SortEmployees className="sort"
           sortByPosition={this.sortByPosition}
         />
-        <Wrapper>
-          {this.state.employees.map(employee => (
-            <EmployeeCard
-              key={employee.id}
-              name={employee.name}
-              image={employee.image}
-              position={employee.position}
-              department={employee.department}
-            />
-          ))}
-        </Wrapper>
+        <Table>
+          <TableHeader
+            employees={this.state.employees}
+          />
+        </Table>
       </div>
     );
   }
