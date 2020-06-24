@@ -17,7 +17,8 @@ class App extends Component {
   updateSearch = str => {
     // Updating the input's state
     this.setState({
-      search: str
+      search: str,
+      employees
     });
   }
 
@@ -29,9 +30,10 @@ class App extends Component {
 
   // function attached to button to filter employees by name
   filterEmployeesByName = name => {
-    const selectedEmployee = this.state.employees.filter(employee => employee.name === name);
+    const selectedEmployee = this.state.employees.filter(employee => employee.name.toLowerCase().includes(name.toLowerCase()));
     this.setState({
-      employees: selectedEmployee
+      employees: selectedEmployee,
+      search: ""
     });
   };
 
