@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import './App.css';
 import employees from "./employees.json";
 import Title from "./components/Title";
-import SearchByName from "./components/SearchByName";
-import SortEmployees from "./components/SortEmployees";
-import Table from "./components/Table"
-import TableHeader from "./components/TableHeader"
+import SearchByName from "./components/SearchAndSortComponents/SearchByName";
+import SortEmployees from "./components/SearchAndSortComponents/SortEmployees";
+import Table from "./components/TableComponents/Table"
+import TableHeader from "./components/TableComponents/TableHeader"
 
 class App extends Component {
   // Setting this.state.employees to the employees json array,
