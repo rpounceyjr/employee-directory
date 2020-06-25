@@ -1,0 +1,17 @@
+.name-col {
+    width: 33%;
+}
+
+.position-col {
+    width: 33%;
+}
+
+.department-col {
+    width: 33%;
+}
+
+.header{
+    font-weight: bolder;
+    font-size: large;
+    border-bottom: 2px solid black;
+}

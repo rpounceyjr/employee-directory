@@ -1,0 +1,16 @@
+.search-form{
+    text-align: center;
+}
+
+.search-div{
+    display: inline-block;
+}
+
+.btn{
+    margin-bottom: 18px;
+    margin-left: 15px;
+}
+
+.search-input{
+    margin-left: 15px;
+}

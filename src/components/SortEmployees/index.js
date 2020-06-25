@@ -1,10 +1,11 @@
 import React from "react"
+import "./style.css"
 
 function SortEmployees(props) {
     return (
-        <div>
-            <button type="button" className="btn btn-outline-secondary" onClick={props.sortByPosition}>Sort by Position</button>
-            <button type="button" className="btn btn-outline-secondary" onClick={props.sortByDepartment}>Sort by Department</button>
+        <div className="sort-div">
+                <button type="button" className="btn btn-outline-secondary" onClick={props.sortByPosition}>Sort By Position</button>
+                <button type="button" className="btn btn-outline-secondary" onClick={props.sortByDepartment}>Sort By Department</button>
         </div>
     );
 }

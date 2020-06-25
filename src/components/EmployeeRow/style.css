@@ -1,0 +1,17 @@
+.name-col {
+    width: 33%;
+}
+
+.position-col {
+    width: 33%;
+}
+
+.department-col {
+    width: 33%;
+}
+
+.employee-row{
+    box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+    margin-bottom: 2px;
+    height: 30px;
+}

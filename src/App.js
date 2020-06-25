@@ -4,15 +4,19 @@ import employees from "./employees.json";
 import Title from "./components/Title";
 import SearchByName from "./components/SearchByName";
 import SortEmployees from "./components/SortEmployees";
-import EmployeeRow from "./components/EmployeeRow"
 import Table from "./components/Table"
 import TableHeader from "./components/TableHeader"
 
 class App extends Component {
-  // Setting this.state.employees to the employees json array
+  // Setting this.state.employees to the employees json array,
+  // and setting search to empty string
   state = {
     employees,
-    search: ""
+    search: "",
+    sortDirection: {
+      departmentDirection: "asc",
+      positionDirection: "asc"
+    }
   };
 
   updateSearch = str => {
@@ -47,15 +51,15 @@ class App extends Component {
     })
   }
 
-    // function attached to button to sort employees by position
-    sortByDepartment = () => {
-      console.log("clicked");
-      let sortedEmployees = [...this.state.employees].sort((a, b) => (a.department > b.department) ? 1 : -1)
-  
-      this.setState({
-        employees: sortedEmployees
-      })
-    }
+  // function attached to button to sort employees by position
+  sortByDepartment = () => {
+    console.log("clicked");
+    let sortedEmployees = [...this.state.employees].sort((a, b) => (a.department > b.department) ? 1 : -1)
+
+    this.setState({
+      employees: sortedEmployees
+    })
+  }
 
 
   // Map over this.state.employees and render an EmployeeCard component for each employee object
@@ -74,6 +78,7 @@ class App extends Component {
           sortByPosition={this.sortByPosition}
           sortByDepartment={this.sortByDepartment}
         />
+        <hr></hr>
         <Table>
           <TableHeader
             employees={this.state.employees}

@@ -1,13 +1,14 @@
 import React from "react"
 import EmployeeRow from "../EmployeeRow"
+import "./style.css";
 
 function TableHeader({ employees }) {
     return(
         <thead>
             <tr>
-                <td className="name-col">Employee Name</td>
-                <td className="position-col">Position</td>
-                <td className="department-col">Department</td>
+                <td className="name-col header">Employee Name</td>
+                <td className="position-col header">Position</td>
+                <td className="department-col header">Department</td>
             </tr>
             {employees.map(employee => (
                 <EmployeeRow
