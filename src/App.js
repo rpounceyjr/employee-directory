@@ -44,7 +44,16 @@ class App extends Component {
   // function attached to button to sort employees by position
   sortByPosition = () => {
     console.log("clicked");
-    let sortedEmployees = [...this.state.employees].sort((a, b) => (a.position > b.position) ? 1 : -1)
+    let sortedEmployees = [...this.state.employees].sort((a, b) => {
+      if (a.position > b.position) {
+        return 1;
+      } else if (a.position < b.position) {
+        return -1;
+      } else {
+        return 0
+      }
+    });
+
 
     this.setState({
       employees: sortedEmployees
@@ -54,7 +63,17 @@ class App extends Component {
   // function attached to button to sort employees by position
   sortByDepartment = () => {
     console.log("clicked");
-    let sortedEmployees = [...this.state.employees].sort((a, b) => (a.department > b.department) ? 1 : -1)
+    let sortedEmployees = [...this.state.employees].sort((a, b) => {
+      if (a.department > b.department) {
+        return 1;
+      } else if (a.department < b.department) {
+        return -1;
+      } else {
+        return 0
+      }
+    });
+
+
 
     this.setState({
       employees: sortedEmployees
