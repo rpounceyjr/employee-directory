@@ -66,7 +66,7 @@ class App extends Component {
   render() {
     console.log(this.state.employees)
     return (
-      <div>
+      <div className="container">
         <Title>Employee Directory</Title>
         <SearchByName
           className="search"
@@ -79,11 +79,13 @@ class App extends Component {
           sortByDepartment={this.sortByDepartment}
         />
         <hr></hr>
-        <Table>
-          <TableHeader
-            employees={this.state.employees}
-          />
-        </Table>
+        <div className="table-container">
+          <Table>
+            <TableHeader
+              employees={this.state.employees}
+            />
+          </Table>
+        </div>
       </div>
     );
   }
