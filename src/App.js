@@ -63,6 +63,7 @@ class App extends Component {
   // function attached to button to sort employees by position
   sortByDepartment = () => {
     console.log("clicked");
+    // cloning the employees state to a variable for sorting
     let sortedEmployees = [...this.state.employees].sort((a, b) => {
       if (a.department > b.department) {
         return 1;
@@ -72,8 +73,6 @@ class App extends Component {
         return 0
       }
     });
-
-
 
     this.setState({
       employees: sortedEmployees
