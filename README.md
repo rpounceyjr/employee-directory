@@ -4,6 +4,8 @@
 
 An employee directory built with React.  Users are able to filter employees by name, and sort employees by position and department.
 
+See it in action [here](https://rpounceyjr.github.io/employee-directory/).
+
 ![Employee Directory](public/images/employee_directory.png)
 
 Email: rpounceyjr@gmail.com
